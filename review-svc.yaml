@@ -29,7 +29,7 @@ eureka:
 
 spring:
   datasource:
-   url: jdbc:mysql://mysql:3306/socialmedia
+   url: jdbc:mysql://172.17.64.1:3306/socialmedia
    username: sjala
    password: JalaJala123
   sql:
