@@ -25,6 +25,7 @@ spring:
     url: jdbc:mysql://172.17.64.1:3306/socialmedia
     username: sjala
     password: JalaJala123
+    driver-class-name: com.mysql.jdbc.Driver
   sql:
     init:
       platform: mysql
