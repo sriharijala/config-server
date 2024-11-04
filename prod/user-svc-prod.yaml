@@ -56,7 +56,7 @@ logging:
           jpa: ERROR
       transaction: ERROR
     # for Hibernate only
-    hibernate: ERROR
+    hibernate: DEBUG
 
 # OTLP exporter endpoint - Jaeger, Tempo, or any OpenTelemetry-compatible backend
 #otel:
