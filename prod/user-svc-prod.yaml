@@ -1,7 +1,3 @@
-spring:
-  devtools:
-    add-properties: false
-    
 management:
   context-path: /user/actuator
   #enable spring actuator,health and prometheus
