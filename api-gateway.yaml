@@ -1,0 +1,58 @@
+management:
+  context-path: /review/actuator
+  #enable spring actuator,health and prometheus
+  endpoints:
+    web:
+      exposure:
+        include: health, info, prometheus
+  metrics:
+    tags:
+      application: review-svc
+  # For Exemplars to work we need histogram buckets
+    distribution:
+      percentiles-histogram:
+        http:
+          server:
+            requests: true
+  tracing:
+    sampling:
+      probability: 1.0
+    enable:
+      web:
+        client:
+          requests: true     #Web Client Observability Tracing
+  zipkin:
+    tracing:
+      endpoint: http://${ZIPKIN:localhost}:9411/api/v2/spans
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://${REGISTRY-SVC:localhost}:8761/eureka/
+  instance:
+    prefer-ip-address: true
+
+logging:
+  file:
+    name: /var/log/springboot/api-gateway.log
+  level:
+    root: INFO
+    org:
+      springframework:
+        web: ERROR
+        orm:
+          jpa: ERROR
+      transaction: ERROR
+    # for Hibernate only
+    hibernate: ERROR
+
+# OTLP exporter endpoint - Jaeger, Tempo, or any OpenTelemetry-compatible backend
+#otel:
+#  traces:
+#    exporter: otlp
+#  exporter:
+#    otlp:
+#      endpoint: http://tempo:4317  # Replace with 'jaeger:14250' for Jaeger in OTLP
+#  resource:
+#    attributes:
+#      service.name: user-reviews-svc
