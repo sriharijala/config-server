@@ -15,13 +15,16 @@ management:
       web:
         client:
           requests: true
+  zipkin:
+    tracing:
+      endpoint: http://${ZIPKIN:localhost}:9411/api/v2/spans
+
+  
 eureka:
   client:
     serviceUrl:
       defaultZone: http://registry-svc:8761/eureka/
-zipkin:
-  tracing:
-    endpoint: http://${ZIPKIN:localhost}:9411/api/v2/spans
+
 
 
 springdoc:
