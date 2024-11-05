@@ -19,9 +19,7 @@ eureka:
   client:
     serviceUrl:
       defaultZone: http://registry-svc:8761/eureka/
-zipkin:
-  tracing:
-    endpoint: http://${ZIPKIN:localhost}:9411/api/v2/spans
+
 
 springdoc:
   swagger-ui.path: /swagger-ui.html
