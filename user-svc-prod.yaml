@@ -5,6 +5,12 @@ management:
     web:
       exposure:
         include: health, info, prometheus
+  endpoint:
+    health:
+      show-details: true
+  health:
+    circuitBreakers:
+        enabled: true        
   metrics:
     tags:
       application: user-svc
